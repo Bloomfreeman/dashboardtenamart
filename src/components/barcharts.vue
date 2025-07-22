@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-3xl md:-mb-40">
+  <div class="w-full max-w-3xl md:h-64 ">
     <canvas ref="canvasRef" class=" w-full h-full"></canvas>
   </div>
 </template>

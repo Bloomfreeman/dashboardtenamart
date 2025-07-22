@@ -1,23 +1,12 @@
 <script setup>
 import navbar from './components/navbar.vue';
-import userCard from './components/userCard.vue';
-import charts from './components/barcharts.vue';
-import linechart from './components/linechart.vue';
-import piechart from './components/piechart.vue';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <div class="flex">
+  <div class="flex bg-green-100">
   <navbar/>
-  <div>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:h-1/2">
-    <charts/>
-    <linechart/>
-    <piechart/>
-    </div>
-    <userCard :limit="8"/>
-    
-  </div>
+  <RouterView/>
   </div>
   
 </template>
