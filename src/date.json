@@ -1,0 +1,62 @@
+{
+  "January": {
+    "sales": 1200,
+    "expenses": 800,
+    "profit": 400
+  },
+  "February": {
+    "sales": 1500,
+    "expenses": 900,
+    "profit": 600
+  },
+  "March": {
+    "sales": 1800,
+    "expenses": 1100,
+    "profit": 700
+  },
+  "April": {
+    "sales": 1600,
+    "expenses": 950,
+    "profit": 650
+  },
+  "May": {
+    "sales": 2000,
+    "expenses": 1300,
+    "profit": 700
+  },
+  "June": {
+    "sales": 2100,
+    "expenses": 1200,
+    "profit": 900
+  },
+  "July": {
+    "sales": 2200,
+    "expenses": 1400,
+    "profit": 800
+  },
+  "August": {
+    "sales": 1900,
+    "expenses": 1000,
+    "profit": 900
+  },
+  "September": {
+    "sales": 2300,
+    "expenses": 1350,
+    "profit": 950
+  },
+  "October": {
+    "sales": 2500,
+    "expenses": 1500,
+    "profit": 1000
+  },
+  "November": {
+    "sales": 2400,
+    "expenses": 1450,
+    "profit": 950
+  },
+  "December": {
+    "sales": 2700,
+    "expenses": 1600,
+    "profit": 1100
+  }
+}
