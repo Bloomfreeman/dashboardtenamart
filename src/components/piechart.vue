@@ -7,21 +7,24 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { Chart } from 'chart.js/auto'
-import userData from '@/generated.json'
+import axios from 'axios'
 
 const canvasRef = ref(null)
+const userD=ref([])
 let male=0;
 let female=0;
-for (let user in userData){
-    let value=userData[user]
-    if (value.Gender ==='M'){
-        male+=1;
-    }else{
+
+onMounted(async() => {
+    const response = await axios.get('http://localhost:5000/Users');
+    userD.value=response.data;
+    for (let user in userD._rawValue){
+      let value=userD._rawValue[user]
+      if (value.Gender ==='M'){
+          male+=1;
+      }else{
         female+=1;
+      }
     }
-}
-onMounted(() => {
-    
   const ctx = canvasRef.value.getContext('2d')
 
   new Chart(ctx, {

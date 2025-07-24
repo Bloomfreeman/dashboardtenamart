@@ -1,6 +1,7 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps,onMounted } from 'vue';
 import { ref } from 'vue';
+import axios from 'axios';
 const blockBut=ref('Block')
 const blockCol=ref('bg-[#10b982]') 
 const blockU=()=>{
@@ -12,7 +13,16 @@ const blockU=()=>{
         blockCol.value='bg-[#10b982]'
     }
 }
-
+const deletU= async (user)=>{
+    try{
+        const confirm=window.confirm('Are you sure you want to delet this User?');
+        if (confirm){
+            await axios.delete(`http://localhost:5000/Users/${user.id}`)
+        }
+    }catch(error){
+        console.log('error deleting job ',error)   
+    }
+}
 defineProps({
     bg: {
         type: String,
@@ -40,7 +50,7 @@ defineProps({
             <h3 class="text-lg font-semibold">{{ user.phone }}</h3>
         </div>
         <div class="flex space-x-1">
-        <button :class="`mr-52 mt-9 block px-3 py-2 rounded ${bg} ${hover} text-center text-white transition`">Delete</button>
+        <button @click=deletU(user) :class="`mr-52 mt-9 block px-3 py-2 rounded ${bg} ${hover} text-center text-white transition`">Delete</button>
         <button @click="blockU" :class="`mt-9 block px-3 py-2 rounded ${blockCol} ${hover} text-white text-center transition`">{{ blockBut }}</button>
         </div>
     </div>
