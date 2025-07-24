@@ -4,12 +4,12 @@ import card from './card.vue';
 import {ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 
-const userD=ref([]);
+const userD=ref([]);    //lateron we put the user data here
 const route=useRoute();
-const radio=route.params.rd;
-let search_resalt=ref([]);
+const radio=route.params.rd;    //return the fillter that passed to the url
+let search_resalt=ref([]);  //lateron will be used to hold the searched datas
 function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); //removes symboles from the searched text
 }
 const search=()=>{
     for (let data in userD._rawValue){
@@ -34,7 +34,7 @@ onMounted(async()=>{
         console.log('error when fetching data', error);
     }
 });
-watch(()=>route.params.value,(newVal,oldVal) => {
+watch(()=>route.params.value,(newVal,oldVal) => {   //run when new word got searched
     search_resalt.value=[]
     search();
 });

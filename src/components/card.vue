@@ -2,7 +2,7 @@
 import { defineProps,onMounted } from 'vue';
 
 import axios from 'axios';
-
+//blocks the user in the card
 const blockU= async (user)=>{
     console.log(user)
     if (user.blocked==='false'){
@@ -13,6 +13,7 @@ const blockU= async (user)=>{
         
     }
 }
+//delete the user in the card
 const deletU= async (user)=>{
     try{
         const confirm=window.confirm('Are you sure you want to delet this User?');
@@ -23,6 +24,7 @@ const deletU= async (user)=>{
         console.log('error deleting job ',error)   
     }
 }
+//just incase i wanna use the latter
 defineProps({
     bg: {
         type: String,

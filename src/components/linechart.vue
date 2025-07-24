@@ -12,6 +12,7 @@ import date from '@/date.json'
 const canvasRef = ref(null)
 let Month=[]
 let signups=[]
+//extract the data from the json
 for (let data in date){
     let {sales,expenses,profit}=date[data]
     Month.push(data)

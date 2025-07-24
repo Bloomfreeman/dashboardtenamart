@@ -1,17 +1,16 @@
 <script setup>
   import { RouterLink, useRoute, useRouter } from 'vue-router';
-  import searchview from '@/views/searchview.vue';
   import { ref } from 'vue';
   
   const route = useRoute();
   const isActiveLink = (routePath)=>{
-    return route.path === routePath;
+    return route.path === routePath;  //check the url to highlight the link
   }
-  const userInput = ref("");
+  const userInput = ref("");  //take the search value
   const router=useRouter();
-  const search_filter=ref("name")
+  const search_filter=ref("name") //pass it to the url after search
   const redirectP=()=>{
-    router.push(`/search/${userInput.value}/${search_filter.value}`);
+    router.push(`/search/${userInput.value}/${search_filter.value}`); //redirect to the searched page
   }
 
 </script>
