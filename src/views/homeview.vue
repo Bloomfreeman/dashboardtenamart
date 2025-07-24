@@ -11,7 +11,7 @@ import piechart from '@/components/piechart.vue';
     <linechart/>
     <piechart/>
     </div><br>
-    <userCard :limit="8" :show="true"/>
+    <userCard :limit="12" :show="true"/>
     
   </div>
 </template>

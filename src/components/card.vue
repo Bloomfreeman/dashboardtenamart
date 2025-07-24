@@ -1,6 +1,17 @@
 <script setup>
 import { defineProps } from 'vue';
-
+import { ref } from 'vue';
+const blockBut=ref('Block')
+const blockCol=ref('bg-[#10b982]') 
+const blockU=()=>{
+    if (blockBut.value==='Block'){
+        blockBut.value='Unblock';
+        blockCol.value='bg-red-500'
+    }else{
+        blockBut.value='Block'
+        blockCol.value='bg-[#10b982]'
+    }
+}
 
 defineProps({
     bg: {
@@ -29,8 +40,8 @@ defineProps({
             <h3 class="text-lg font-semibold">{{ user.phone }}</h3>
         </div>
         <div class="flex space-x-1">
-        <a href="#" :class="`mr-52 mt-9 block px-3 py-2 rounded ${bg} ${hover} text-center text-white transition`">delete</a>
-        <a href="#" :class="`mt-9 block px-3 py-2 rounded ${bg} ${hover} text-white text-center transition`">block</a>
+        <button :class="`mr-52 mt-9 block px-3 py-2 rounded ${bg} ${hover} text-center text-white transition`">Delete</button>
+        <button @click="blockU" :class="`mt-9 block px-3 py-2 rounded ${blockCol} ${hover} text-white text-center transition`">{{ blockBut }}</button>
         </div>
     </div>
 </template>

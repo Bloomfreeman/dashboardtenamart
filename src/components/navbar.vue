@@ -1,38 +1,52 @@
 <script setup>
-  import { RouterLink, useRoute } from 'vue-router';
-
+  import { RouterLink, useRoute, useRouter } from 'vue-router';
+  import searchview from '@/views/searchview.vue';
+  import { ref } from 'vue';
+  
+  const route = useRoute();
   const isActiveLink = (routePath)=>{
-    const route = useRoute();
     return route.path === routePath;
   }
+  const userInput = ref("");
+  const router=useRouter();
+  const search_filter=ref("name")
+  const redirectP=()=>{
+    router.push(`/search/${userInput.value}/${search_filter.value}`);
+  }
+
 </script>
 <template>
 <aside class="w-64 h-screen bg-[#10b982] text-white flex flex-col p-4 space-y-4 rounded-3xl">
     
     <!-- Search bar and Filter-->
     <div>
-      <form @submit.prevent="">
       <input 
         type="text" 
-        placeholder="Search..." 
+        placeholder="Search..."
+        id="search"
+        v-model="userInput" 
+        @keydown.enter="redirectP"
         class="w-full px-3 py-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
+        />
+      <form >
+      
+        
       <div class="p-4 bg-[#1a7c5b] text-right mt-5 shadow-lg rounded-xl max-w-sm">
         <h1 class="text-base font-semibold mb-4 text-white">Filter</h1>
 
       <div class="space-y-3">
         <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" id="name" name="search_filter" value="HTML" checked class="text-blue-600 focus:ring-blue-500 w-4 h-4">
+          <input type="radio" id="name" autocomplete="name" v-model="search_filter" value="name" checked class="text-blue-600 focus:ring-blue-500 w-4 h-4">
           <span class="text-white font-medium">Name</span>
         </label>
 
         <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" id="email" name="search_filter" value="CSS"  class="text-blue-600 focus:ring-blue-500 w-4 h-4">
+          <input type="radio" id="email" autocomplete="email" v-model="search_filter" value="email"  class="text-blue-600 focus:ring-blue-500 w-4 h-4">
           <span class="text-white font-medium">Email</span>
         </label>
 
         <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" id="phone" name="search_filter" value="JavaScript" class="text-blue-600 focus:ring-blue-500 w-4 h-4">
+          <input type="radio" id="phone" autocomplete="phone" v-model="search_filter" value="phone" class="text-blue-600 focus:ring-blue-500 w-4 h-4">
           <span class="text-white font-medium">Phone</span>
         </label>
       </div>
@@ -48,9 +62,6 @@
         </li>
         <li>
           <router-link to="/users" :class="`${isActiveLink('/users')? 'bg-[#1a7c5b]':''} block px-3 py-2 rounded hover:bg-[#1a7c5b] transition`">📁 Wishlisted</router-link>
-        </li>
-        <li>
-          <router-link to="/block" :class="`${isActiveLink('/block')? 'bg-[#1a7c5b]':''} block px-3 py-2 rounded hover:bg-[#1a7c5b] transition`">👥 Blocked</router-link>
         </li>
       </ul>
     </nav>
