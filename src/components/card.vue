@@ -1,16 +1,16 @@
 <script setup>
 import { defineProps,onMounted } from 'vue';
-import { ref } from 'vue';
+
 import axios from 'axios';
-const blockBut=ref('Block')
-const blockCol=ref('bg-[#10b982]') 
-const blockU=()=>{
-    if (blockBut.value==='Block'){
-        blockBut.value='Unblock';
-        blockCol.value='bg-red-500'
+
+const blockU= async (user)=>{
+    console.log(user)
+    if (user.blocked==='false'){
+        await axios.patch(`http://localhost:5000/Users/${user.id}`,{blocked:'true'})
+
     }else{
-        blockBut.value='Block'
-        blockCol.value='bg-[#10b982]'
+        await axios.patch(`http://localhost:5000/Users/${user.id}`,{blocked:'false'})
+        
     }
 }
 const deletU= async (user)=>{
@@ -51,7 +51,7 @@ defineProps({
         </div>
         <div class="flex space-x-1">
         <button @click=deletU(user) :class="`mr-52 mt-9 block px-3 py-2 rounded ${bg} ${hover} text-center text-white transition`">Delete</button>
-        <button @click="blockU" :class="`mt-9 block px-3 py-2 rounded ${blockCol} ${hover} text-white text-center transition`">{{ blockBut }}</button>
+        <button @click=blockU(user) :class="`mt-9 block px-3 py-2 rounded bg-[#10b982] ${hover} text-white text-center transition`"><p v-if="user.blocked==='false'" >Block</p><p v-if="user.blocked==='true'" class="text-[#aa0000] font-bold">Unblock</p></button>
         </div>
     </div>
 </template>
