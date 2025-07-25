@@ -7,7 +7,7 @@
       "email": "caintalley@miracula.com",
       "phone": "+1 (948) 456-3846",
       "Gender": "F",
-      "blocked": "false"
+      "blocked": "true"
     },
     {
       "id": "687e54ddcc284c3e9b899c37",
@@ -16,7 +16,7 @@
       "email": "ortizrichard@miracula.com",
       "phone": "+1 (899) 508-3487",
       "Gender": "M",
-      "blocked": "true"
+      "blocked": "false"
     },
     {
       "id": "687e54dd42e6fd3dd967d104",
@@ -160,7 +160,7 @@
       "email": "cheryldyer@miracula.com",
       "phone": "+1 (919) 512-3174",
       "Gender": "F",
-      "blocked": "false"
+      "blocked": "true"
     },
     {
       "id": "687e54dd6e6af0024a1ef628",
@@ -217,13 +217,13 @@
       "blocked": "false"
     },
     {
-      "id": "687e54dd1cda1f76d10b14fa",
-      "index": 24,
-      "name": "Aida Wood",
-      "email": "aidawood@miracula.com",
-      "phone": "+1 (944) 519-3707",
-      "Gender": "F",
-      "blocked": "false"
-    }
+    "id": "687e54dd1cda1f76d10b14fa",
+    "index": 24,
+    "name": "Aida Wood",
+    "email": "aidawood@miracula.com",
+    "phone": "+1 (944) 519-3707",
+    "Gender": "F",
+    "blocked": "false"
+  }
   ]
 }

@@ -12,6 +12,7 @@ const blockU= async (user)=>{
         await axios.patch(`http://localhost:5000/Users/${user.id}`,{blocked:'false'})
         
     }
+    window.location.reload()
 }
 //delete the user in the card
 const deletU= async (user)=>{
@@ -23,6 +24,8 @@ const deletU= async (user)=>{
     }catch(error){
         console.log('error deleting job ',error)   
     }
+    window.location.reload()
+
 }
 //just incase i wanna use the latter
 defineProps({
