@@ -1,0 +1,27 @@
+What is the program?
+-It a dashboard program made for tenamart.
+-It takes data from live jsom server.
+-You can see users and visualize data.
+-You can block and delete users.
+-You can export data to csv.
+-You can search by name, email and phon number.
+-It work almost for all screen size.
+
+
+How to run
+-open cmd
+-Make sure your in the right directory "dashboard"
+-Put the following command in cmd
+$npm run dev
+$npm run server
+
+trubelshoot:
+-make sure you have node.js in your system
+-make sure you installed vue properly:-$npm install vue@latest
+-make sure you have all the dependancys install:-$npm i
+-tailwind version need to be 3:-$npm install -D tailwind@3 postcss autoprefixer
+-axios need to be installed :-npm install axios
+-the program uses json server so make sure to install json 
+ server:-npm install json-server
+-the json server run in port 5000 if you have other things run 
+ in port 5000 change the port in package.json file

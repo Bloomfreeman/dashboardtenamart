@@ -4,6 +4,6 @@ import userCard from '@/components/userCard.vue';
 </script>
 <template>
     <div class="overflow-auto h-screen">
-        <userCard/>
+        <userCard :showExport="true"/>
     </div>
 </template>
